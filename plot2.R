@@ -11,7 +11,7 @@ subPowerData <- subset(powerData, Date %in% c("1/2/2007", "2/2/2007"))
 subPowerData$Date <- as.Date(subPowerData$Date, format="%d/%m/%Y")
 subPowerData$datetime <- as.POSIXct(paste(as.Date(subPowerData$Date), subPowerData$Time))
 
-#plotting the histogram
-png("plot1.png", width=480, height=480)
-hist(subPowerData$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="red")
+#plotting the graph
+png("plot2.png", width=480, height=480)
+with(subPowerData, plot(x=subPowerData$datetime, y=subPowerData$Global_active_power, type="l", xlab = "", ylab="Global Active Power (kilowatts)"))
 dev.off()
